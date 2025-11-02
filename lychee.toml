@@ -6,6 +6,10 @@ exclude = [
   "https://formspree.io/*",
   "https://plausible.io/*",
   "https://status.complyo.eu*",
-  "https://global-investment-consulting.github.io/Complyo-site/assets/og-card.png"
+  "https://status.complyo.eu/*",
+  "https://developers.complyo.com/*",
+  "http://localhost:8080/*",
+  "https://global-investment-consulting.github.io/Complyo-site/assets/og-card.png",
+  "https://global-investment-consulting.github.io/Complyo-site/sitemap.xml"
 ]
 include = ["."]
