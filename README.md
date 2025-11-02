@@ -20,20 +20,26 @@ Static marketing site for Complyo -- the compliance operations platform for glob
 
       curl -X POST -H "Accept: application/json" -F name=Test -F email=test@example.com -F message="Hello" https://formspree.io/f/mblpqkvz
 
+### Privacy page
+- `privacy.html` documents GDPR handling for contact form data (collection, legal basis, retention, rights).
+- Update the “Last updated” timestamp whenever material changes are made.
+
 ### Analytics (Plausible)
 - The Plausible snippet in each page head is pre-configured for `complyo.eu`.
+- The contact form fires the conversion event `ContactFormSubmitted` on successful submission; use it for funnel tracking.
 - If you need a different domain, update the `data-domain` attribute (or comment out the script if analytics should remain disabled).
 
 ### Status link
 - Footer links point to `https://status.complyo.eu`. Adjust the URL in each footer if the status page changes.
 
 ### Custom domain
-- GitHub Pages uses the `CNAME` file (`www.complyo.eu`). In DNS, create a CNAME record for `www` pointing to `global-investment-consulting.github.io`.
-- After updating DNS, visit the repository settings and confirm the custom domain plus HTTPS enforcement.
+- GitHub Pages uses the `CNAME` file (`www.complyo.eu`). Configure DNS with a CNAME record for `www` pointing to `global-investment-consulting.github.io` and enable HTTPS in the Pages settings.
+- Any DNS change may take time to propagate; verify the certificate after the first deploy.
 
 ### SEO and sharing assets
 - `sitemap.xml` and `robots.txt` live at the repository root and are already configured with canonical URLs.
-- Each page includes Open Graph and Twitter metadata. Replace the temporary logo reference with a dedicated 1200x630 image at `assets/og-card.png` when available.
+- Social share cards live at `assets/og-card.png` (PNG) and `assets/og-card.svg`; update both if you refresh branding.
+- Every page references `/Complyo-site/assets/og-card.png` via Open Graph metadata.
 - A custom `404.html` provides a branded fallback for missing routes.
 
 ### CI link checks
