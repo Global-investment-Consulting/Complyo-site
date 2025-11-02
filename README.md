@@ -14,9 +14,11 @@ Static marketing site for Complyo -- the compliance operations platform for glob
 ## Configuration
 
 ### Contact form (Formspree)
-- The contact form lives in `contact.html`. It is currently disabled and shows a fallback note while the form action points to `#`.
-- TODO: obtain a Formspree project ID and change the `<form>` action to `https://formspree.io/f/XXXXXX`. Keep the hidden subject field (`_subject`) when wiring it up.
-- Update the visible helper text once submissions are enabled.
+- The contact form in `contact.html` posts to Formspree at `https://formspree.io/f/mblpqkvz`.
+- Submissions include a hidden `_subject` field and `_gotcha` honeypot; edit copy as needed.
+- Test locally with:
+
+      curl -X POST -H "Accept: application/json" -F name=Test -F email=test@example.com -F message="Hello" https://formspree.io/f/mblpqkvz
 
 ### Analytics (Plausible)
 - The Plausible snippet in each page head is pre-configured for `complyo.eu`.
