@@ -1,0 +1,12 @@
+{
+  "name": "complyo-site",
+  "version": "1.0.0",
+  "description": "Marketing site for Complyo compliance operations platform.",
+  "private": true,
+  "scripts": {
+    "dev": "npx http-server . -p 8080",
+    "build": "echo 'static site – no build'"
+  },
+  "author": "Complyo",
+  "license": "MIT"
+}
