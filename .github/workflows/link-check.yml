@@ -1,4 +1,4 @@
-name: Link Check
+﻿name: Link Check
 
 on:
   push:
@@ -17,4 +17,4 @@ jobs:
       - name: Run lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --retry-count 1 --retry-wait 2 --accept 200,204,206 .
+          args: lychee --no-progress --verbose --config lychee.toml .
