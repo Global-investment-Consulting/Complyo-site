@@ -55,9 +55,9 @@
                         <h2>Request access to Complyo</h2>
                         <p>Share a few details and the team will follow up with a tailored walkthrough of the platform.</p>
                     </div>
-                    <!-- TODO: Set FORMSPREE_ID and update the form action to https://formspree.io/f/XXXXXX. -->
-                    <form action="#" method="post" class="form-grid">
-                        <input type="hidden" name="_subject" value="Complyo Beta Request">
+                    <form action="https://formspree.io/f/mblpqkvz" method="POST" class="form-grid">
+                        <input type="hidden" name="_subject" value="Complyo Beta Request" />
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
                         <div class="form-field">
                             <label for="contact-name">Full name</label>
                             <input id="contact-name" name="name" type="text" autocomplete="name" required>
@@ -76,10 +76,23 @@
                         </div>
                         <div class="form-actions">
                             <button class="btn primary" type="submit">Submit request</button>
-                            <p class="form-disabled-note">Temporarily disabled &mdash; email <a href="mailto:hello@complyo.eu">hello@complyo.eu</a>.</p>
                         </div>
-                        <p class="form-success" aria-live="polite" role="status" hidden>Your message was sent. We'll be in touch soon.</p>
+                        <p id="contact-success" role="status" aria-live="polite" style="display:none;margin-top:0.5rem"></p>
                     </form>
+                    <script>
+                      const f=document.querySelector('form[action^="https://formspree.io/f/"]');
+                      const s=document.getElementById('contact-success');
+                      if(f && s){
+                        f.addEventListener('submit', async (e)=>{
+                          // allow normal POST so Formspree handles spam/validation server-side
+                          // optional enhancement: comment the next line to let browser navigate
+                          e.preventDefault();
+                          const resp = await fetch(f.action, { method:'POST', body: new FormData(f), headers: { 'Accept': 'application/json' }});
+                          if(resp.ok){ s.style.display='block'; s.textContent='Thanks! We will get in touch.'; f.reset(); }
+                          else { s.style.display='block'; s.textContent='Submission failed. Please try again or email hello@complyo.eu.'; }
+                        });
+                      }
+                    </script>
                 </div>
             </div>
         </section>
