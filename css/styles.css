@@ -33,6 +33,34 @@ a:focus {
     text-decoration: underline;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-200%);
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 12px 0;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -61,8 +89,17 @@ img {
 }
 
 .logo img {
-    width: 140px;
-    height: auto;
+    display: block;
+}
+
+.site-header .logo img {
+    height: 28px;
+    width: auto;
+}
+
+.site-footer .logo img {
+    height: 40px;
+    width: auto;
 }
 
 .primary-nav {
@@ -405,6 +442,74 @@ h1 {
     gap: 0.4rem;
 }
 
+.contact-form {
+    background-color: var(--bg);
+    padding: 4rem 0;
+}
+
+.contact-form .form-wrapper {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.form-field {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.form-field label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 65, 194, 0.12);
+}
+
+.form-field textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.form-success {
+    margin: 0;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.form-disabled-note {
+    margin: 0;
+    color: var(--subtle);
+}
+
 .hero-visual {
     position: relative;
     display: flex;
@@ -483,6 +588,10 @@ pre {
 
     .footer-content {
         flex-direction: column;
+    }
+
+    .contact-form .form-wrapper {
+        padding: 2rem 1.5rem;
     }
 }
 

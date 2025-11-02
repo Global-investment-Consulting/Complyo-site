@@ -1,0 +1,16 @@
+﻿accept = [200, 206, 301, 302, 308, 429]
+max_retries = 2
+retry_wait = 2
+exclude_mail = true
+exclude = [
+  "https://formspree.io/*",
+  "https://plausible.io/*",
+  "https://status.complyo.eu*",
+  "https://status.complyo.eu/*",
+  "https://developers.complyo.com/*",
+  "http://localhost:8080/*",
+  "https://global-investment-consulting.github.io/Complyo-site/assets/og-card.png",
+  "https://global-investment-consulting.github.io/Complyo-site/sitemap.xml"
+]
+include = ["."]
+scheme = ["file"]

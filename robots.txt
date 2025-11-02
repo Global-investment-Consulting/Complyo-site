@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://global-investment-consulting.github.io/Complyo-site/sitemap.xml
