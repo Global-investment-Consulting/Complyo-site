@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complyo for Developers</title>
     <meta property="og:title" content="Complyo &ndash; One API for EU E-Invoicing" />
-    <meta property="og:description" content="Automate invoicing, e-reporting and Peppol delivery across Europe." />
+    <meta name="description" content="Developer documentation for Complyo&rsquo;s e-invoicing API. Send, validate, and track invoices across Europe." />
+    <meta name="keywords" content="Complyo API, Peppol sandbox, e-invoicing SDK, REST API Europe, ViDA developers" />
+    <meta property="og:description" content="Developer documentation for Complyo&rsquo;s e-invoicing API. Send, validate, and track invoices across Europe." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://global-investment-consulting.github.io/Complyo-site/" />
     <!-- OG image generated at assets/og-card.png (1200x630). -->
@@ -42,71 +44,19 @@
     <main id="main">
         <section class="page-hero">
             <div class="container">
-                <p class="eyebrow">Developers</p>
-                <h1>APIs and webhooks that meet regulatory rigor</h1>
-                <p class="lead">Automate evidence, sync control data, and embed compliance into your product lifecycle.</p>
-                <div class="hero-actions">
-                    <a class="btn primary" href="https://developers.complyo.com/reference">Read the docs</a>
-                    <a class="btn secondary" href="mailto:devrel@complyo.com">Contact DevRel</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="docs-callouts">
-            <div class="container docs-grid">
-                <article>
-                    <h2>REST API</h2>
-                    <p>Manage controls, frameworks, and evidence programmatically. OAuth 2.0, granular scopes, and signed payloads keep your integrations secure.</p>
-                    <pre><code class="language-bash">curl https://api.complyo.com/v1/controls \
-  -H "Authorization: Bearer &lt;token&gt;"</code></pre>
-                </article>
-                <article>
-                    <h2>Ingestion Webhooks</h2>
-                    <p>Send structured events from your systems to Complyo. Automatic schema validation and replay protection ensure compliance-grade fidelity.</p>
-                </article>
-                <article>
-                    <h2>SDKs &amp; Samples</h2>
-                    <p>Get started quickly with SDKs in JavaScript, Python, and Go. Sample apps demonstrate least-privilege patterns for regulated environments.</p>
-                </article>
+                <h1>Developer-First Infrastructure for EU Compliance</h1>
+                <p class="lead">Complyo&rsquo;s REST API and SDKs make it easy to create, validate, and send invoices across all European networks.</p>
+                <p>Use our sandbox to test Peppol and national adapters instantly.</p>
             </div>
         </section>
 
         <section class="code-section">
             <div class="container code-grid">
                 <div>
-                    <h2>Example: automate vulnerability evidence</h2>
-                    <p>Schedule a daily job that pushes the latest scan summary into Complyo and links it to your vulnerability management control.</p>
+                    <pre><code class="language-bash">curl https://api.complyo.eu/v1/invoices \
+ -H "Authorization: Bearer &lt;token&gt;" \
+ -d '{"country":"IT","schema":"SDI","invoice":"&lt;UBL/XML&gt;"}'</code></pre>
                 </div>
-                <div>
-                    <pre><code class="language-js">import Complyo from '@complyo/sdk';
-
-const client = new Complyo({
-  clientId: process.env.COMPLYO_CLIENT_ID,
-  clientSecret: process.env.COMPLYO_CLIENT_SECRET,
-});
-
-const evidence = await client.evidence.create({
-  controlId: 'ctrl_vuln_monitoring',
-  title: 'Daily vulnerability scan',
-  collectedAt: new Date().toISOString(),
-  metadata: {
-    scanner: 'Orca Security',
-    findings: 0,
-    reportUrl: 'https://scanner/reports/123',
-  },
-});
-
-console.log('Evidence stored: ' + evidence.id);
-</code></pre>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-banner">
-            <div class="container">
-                <h2>Join the Complyo developer program</h2>
-                <p>Early access to API features, roadmap previews, and quarterly architecture reviews.</p>
-                <a class="btn primary" href="https://developers.complyo.com/signup">Request access</a>
             </div>
         </section>
     </main>

@@ -2,6 +2,8 @@
 max_retries = 2
 retry_wait = 2
 exclude_mail = true
+offline = true
+# Exclude known placeholders / rate-limited scripts
 exclude = [
   "https://formspree.io/*",
   "https://plausible.io/*",
