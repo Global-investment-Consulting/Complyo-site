@@ -13,3 +13,4 @@ exclude = [
   "https://global-investment-consulting.github.io/Complyo-site/sitemap.xml"
 ]
 include = ["."]
+scheme = ["file"]
